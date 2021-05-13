@@ -50,6 +50,10 @@ enum layer_number {
 #define KC_A_S ALT_T(KC_S)
 #define KC_A_L ALT_T(KC_L)
 
+// shift_t
+#define KC_S_A LSFT_T(KC_A)    //shift down key
+#define KC_S_SC RSFT_T(KC_SCLN)   //shift up key
+
 #define KC_C_BS LCTL_T(KC_BSPC)      // backspace ctrl
 #define KC_A_BS ALT_T(KC_BSPC)      // backspace alt
 #define KC_A_DEL ALT_T(KC_DEL)       // alt
@@ -76,6 +80,10 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
       return TAPPING_LAYER_TERM;
     case KC_A_L:
       return TAPPING_LAYER_TERM;
+    case KC_S_A:
+      return TAPPING_LAYER_TERM;
+    case KC_S_SC:
+      return TAPPING_LAYER_TERM;
     default:
       return TAPPING_TERM;
   }
@@ -87,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //,----+----+----+----+----+----.     ,----+----+----+----+----+----.
       ESC, Q  , W  , E  , R  , T  ,       Y  , U  , I  , O  , P  ,MINS,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
-     C_TAB, A  ,A_S, G_D ,C_F , G ,        H , C_J ,G_K ,A_L ,SCLN,QUOT,
+     C_TAB,S_A ,A_S, G_D ,C_F , G ,        H , C_J ,G_K ,A_L,S_SC,QUOT,
   //|----+----+----+----+----+----+     |----+----+----+----+----+----|
      S_LFT, Z  , X  , C  , V  , B ,       N  , M  ,COMM,DOT ,SLSH,M_RGT,
   //`----+----+----+----+----+----/     \----+----+----+----+----+----'
