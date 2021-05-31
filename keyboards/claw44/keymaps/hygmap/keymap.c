@@ -33,6 +33,7 @@ enum layer_number {
 // layer: レイヤー変更 スペースを左に配置してレイヤー2(Lower)に、エンターを右に配置してレイヤー1（Raise)に
 #define KC_L_SPC LT(_LOWER, KC_SPC)
 #define KC_R_SPC LT(_RAISE, KC_SPC)
+#define KC_AD_ENT LT(_ADJUST, KC_ENT)
 
 // JE_t + cmd hold: 変換無変換キータップとWin/Cmd
 #define KC_G_JA MT(MOD_RGUI, KC_HENK)
@@ -97,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
      C_TAB,S_A ,A_S, G_D ,C_F , G ,        H , C_J ,G_K ,A_L,S_SC,QUOT,
   //|----+----+----+----+----+----+     |----+----+----+----+----+----|
-     S_LFT, Z  , X  , C  , V  , B ,       N  , M  ,COMM,DOT ,SLSH,M_RGT,
+     S_LFT, Z  , X  , C  , V  , B ,       N  , M  ,COMM,DOT ,SLSH,AD_ENT,
   //`----+----+----+----+----+----/     \----+----+----+----+----+----'
               S_DWN,G_EN,L_SPC,A_BS,      C_BS,R_SPC,G_JA,S_UP
   //          `----+----+----+----'     `----+----+----+----'
@@ -109,9 +110,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
      LCTL,    ,GRV ,DQUO,QUOT,TILD,      LEFT,DOWN, UP ,RGHT,PLUS ,PIPE,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
-     LSFT,    ,    ,LCBR,LBRC,LPRN,      RPRN,RBRC,RCBR,    ,    ,RSFT,
+     LSFT,    ,    ,LCBR,LBRC,LPRN,      RPRN,RBRC,RCBR,    ,    ,ENT ,
   //`----+----+----+----+----+----/     \----+----+----+----+----+----'
-                   ,    ,ENT ,DEL ,          ,    ,    ,    
+                   ,    ,    ,DEL ,          ,    ,    ,    
   //          `----+----+----+----'     `----+----+----+----'
   ),
 
@@ -121,9 +122,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
     LCTL, 1  , 2  , 3  , 4  , 5  ,       6  , 7  , 8  , 9  , 0  ,    ,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
-    LSFT,    ,    ,    ,    ,    ,          ,    ,LT  ,GT  ,SLSH,    ,
+    LSFT,    ,    ,    ,    ,    ,          ,    ,LT  ,GT  ,SLSH ,ENT ,
   //`----+----+----+--+-+----+----/     \----+----+----+----+----+----'
-                   ,    ,    ,    ,      DEL  ,ENT ,    ,
+                   ,    ,    ,    ,      DEL  ,    ,    ,
   //          `----+----+----+----'     `----+----+----+----'
   ),
 
