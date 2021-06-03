@@ -38,12 +38,12 @@ enum planck_keycodes {
 #define KC_XXXX KC_NO //定義無し
 
 // layer: レイヤー変更 スペースを左に配置してレイヤー2(Lower)に、エンターを右に配置してレイヤー1（Raise)に
-#define KC_L_SPC LT(_LOWER,KC_SPC)
-#define KC_R_SPC LT(_RAISE,KC_SPC)
+//#define KC_L_SPC LT(_LOWER,KC_SPC)
+//#define KC_R_SPC LT(_RAISE,KC_SPC)
 
-// JE_t + cmd hold: 変換無変換キータップとWin/Cmd
-#define KC_G_JA MT(MOD_RGUI,KC_HENK)
-#define KC_G_EN MT(MOD_LGUI,KC_MHEN)
+// JE_t + Layer hold: 変換無変換キータップとWin/Cmd
+#define KC_R_JA LT(_RAISE,KC_HENK)
+#define KC_L_EN LT(_LOWER,KC_MHEN)
 
 // cmd_t
 #define KC_G_D LGUI_T(KC_D)
@@ -72,7 +72,7 @@ enum planck_keycodes {
 #define KC_AD_UP LT(_ADJUST, KC_UP)   //shift up key
 
 
-// S,L,D,K,F,Jはチョット余裕を持たせる：全体が170に対して、文字キーのみ240に設定。
+// S,L,D,K,F,Jはチョット余裕を持たせる：全体が170に対して、文字キーのみ240に設定。シフトは短めで-40にする
 #define TAPPING_LAYER_TERM 240
 uint16_t get_tapping_term(uint16_t keycode,keyrecord_t *record) {
   switch (keycode) {
@@ -89,9 +89,9 @@ uint16_t get_tapping_term(uint16_t keycode,keyrecord_t *record) {
     case KC_A_L:
       return TAPPING_LAYER_TERM;
     case KC_S_A:
-      return TAPPING_LAYER_TERM;
+      return TAPPING_LAYER_TERM - 50;
     case KC_S_SC:
-      return TAPPING_LAYER_TERM;
+      return TAPPING_LAYER_TERM - 50;
     default:
       return TAPPING_TERM;
   }
@@ -108,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //-----+----+----+----+----+----+----+----+----+----+----+----
      LSFT, Z  , X  , C  , V  , B  , N  , M  ,COMM,DOT ,SLSH,ENT ,
   //-----+----+----+----+----+----+----+----+----+----+----+----
-     DOWN,LEFT,LCTL,G_EN, ,L_SPC,    ,R_SPC ,G_JA,RALT,RGHT,AD_UP
+     DOWN,LEFT,LCTL,LGUI,L_EN,  ,SPC  ,R_JA ,RGUI,RALT,RGHT,AD_UP
   ),
 
 
@@ -120,7 +120,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  |-----+----+----+----+----+----+----+----+----+----+----+----|
      LSFT,    ,    ,LCBR,LBRC,LPRN, RPRN,RBRC,RCBR,    ,    ,    ,
 //  |-----+----+----+----+----+----+----+----+----+----+----+----|
-          ,    ,    ,    ,    ,ENT,    ,    ,    ,    ,    ,UP
+          ,    ,    ,    ,    ,, ENT   ,    ,    ,    ,    ,UP
 //  .-----+----+----+----+----+----+----+----+----+----+----+----.
 ),
 
@@ -132,7 +132,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  |-----+----+----+----+----+----+----+----+----+----+----+----|
      LSFT ,    ,    ,    ,    ,    ,    ,    ,LT  ,GT  ,SLSH,    ,
 //  |-----+----+----+----+----+----+----+----+----+----+----+----|
-          ,    ,    ,    ,    ,    ,    ,ENT ,    ,    ,    ,UP
+          ,    ,    ,    ,    ,  ,ENT      , ,    ,    ,    ,UP
 //  .-----+----+----+----+----+----+----+----+----+----+----+----.
 ),
 
@@ -140,9 +140,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  .-----+----+----+----+----+----+----+----+----+----+----+----.
           ,F1  ,F2  ,F3  ,F4  ,F5  ,    ,    ,    ,    ,    ,    ,
 //  |-----+----+----+----+----+----+----+----+----+----+----+----|
-          ,F6 , F7  ,F8  ,F9  ,F10  ,   ,    ,    ,MS_U,MS_R,    ,
+          ,F6 , F7  ,F8  ,F9  ,F10 ,    ,    ,MS_BTN1,MS_U,MS_BTN2,,
 //  |-----+----+----+----+----+----+----+----+----+----+----+----|
-          ,F11 ,F12 ,    ,    ,    ,    ,MS_BTN1,MS_L,MS_D,MS_BTN2,  ,
+          ,F11 ,F12 ,    ,    ,    ,    ,    ,MS_L,MS_D,MS_R,    ,
 //  |-----+----+----+----+----+----+----+----+----+----+----+----|
           ,    ,    ,    ,    ,    ,    ,    ,    ,    ,    ,    
 //  .-----+----+----+----+----+----+----+----+----+----+----+----.
