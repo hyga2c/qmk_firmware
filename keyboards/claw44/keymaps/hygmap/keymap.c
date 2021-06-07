@@ -96,31 +96,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+     |----+----+----+----+----+----|
      LSFT, Z  , X  , C  , V  , B ,       N  , M  ,COMM,DOT ,SLSH,AD_ENT,
   //`----+----+----+----+----+----/     \----+----+----+----+----+----'
-              LGUI,L_EN,SPC,A_BS,      C_BS,SPC,R_JA,RGUI
+               LGUI,L_EN,SPC ,A_BS,      C_BS,SPC ,R_JA,RGUI
   //          `----+----+----+----'     `----+----+----+----'
   ),
 
     [_RAISE] = LAYOUT_kc( \
   //,----+----+----+----+----+----.     ,----+----+----+----+----+----.
-         ,EXLM,AT  ,HASH,DLR ,PERC,      CIRC,AMPR ,ASTR,EQL,BSLS,BSPC,
+         ,EXLM,AT  ,HASH,DLR ,PERC,      CIRC,AMPR,ASTR,EQL ,BSLS,BSPC,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
-     LCTL,    ,GRV ,DQUO,QUOT,TILD,      LEFT,DOWN, UP ,RGHT,PLUS ,PIPE,
+     LCTL,    ,GRV ,DQUO,QUOT,TILD,      LEFT,DOWN, UP ,RGHT,PLUS,PIPE,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
      LSFT,    ,    ,LCBR,LBRC,LPRN,      RPRN,RBRC,RCBR,    ,    ,ENT ,
   //`----+----+----+----+----+----/     \----+----+----+----+----+----'
-                   ,    ,    ,DEL ,          ,    ,    ,
+                   ,    ,ENT ,DEL ,          ,    ,    ,
   //          `----+----+----+----'     `----+----+----+----'
   ),
 
     [_LOWER] = LAYOUT_kc( \
   //,----+----+----+----+----+----.     ,----+----+----+----+----+----.
-         ,EXLM,AT  ,HASH,DLR ,PERC,      CIRC,AMPR ,ASTR,EQL,BSLS,BSPC,
+         ,EXLM,AT  ,HASH,DLR ,PERC,      CIRC,AMPR,ASTR,EQL ,BSLS,BSPC,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
     LCTL, 1   , 2  , 3  , 4  , 5  ,       6  , 7  , 8  , 9  , 0  ,    ,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
-    LSFT,    ,    ,    ,    ,    ,           ,    ,COMM,DOT ,SLSH,ENT ,
+    LSFT,    ,     ,LCBR,LBRC,LPRN,      RPRN,RBRC,COMM,DOT ,SLSH,ENT ,
   //`----+----+----+--+-+----+----/     \----+----+----+----+----+----'
-                   ,    ,    ,    ,      DEL  ,    ,    ,
+                   ,    ,    ,    ,      DEL ,ENT ,    ,
   //          `----+----+----+----'     `----+----+----+----'
   ),
 
