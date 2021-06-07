@@ -114,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_RAISE] = KC_KEYMAP(
 //  .-----+----+----+----+----+----+----+----+----+----+----+----.
-          ,EXLM,AT  ,HASH,DLR ,XXXX,CIRC,AMPR ,ASTR,EQL,BSLS,BSPC,
+          ,EXLM,AT  ,HASH,DLR ,PERC,CIRC,AMPR,ASTR,EQL ,BSLS,BSPC,
 //  |-----+----+----+----+----+----+----+----+----+----+----+----|
      LCTL,    ,GRV ,DQUO,QUOT,TILD, LEFT,DOWN, UP ,RGHT,PLUS,PIPE,
 //  |-----+----+----+----+----+----+----+----+----+----+----+----|
@@ -126,11 +126,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_LOWER] = KC_KEYMAP(
 //  .-----+----+----+----+----+----+----+----+----+----+----+----.
-         ,    ,    ,    ,    ,    ,     ,EQL ,PLUS,ASTR,PERC,BSPC,
+          ,EXLM,AT  ,HASH,DLR ,PERC,CIRC,AMPR,ASTR,EQL ,BSLS,BSPC,
 //  |-----+----+----+----+----+----+----+----+----+----+----+----|
      LCTL , 1  , 2  , 3  , 4  , 5  , 6  , 7  , 8  , 9  , 0  ,    ,
 //  |-----+----+----+----+----+----+----+----+----+----+----+----|
-     LSFT ,    ,    ,    ,    ,    ,    ,    ,LT  ,GT  ,SLSH,    ,
+     LSFT ,    ,    ,LCBR,LBRC,LPRN, RPRN,RBRC,COMM,DOT ,SLSH,ENT ,
 //  |-----+----+----+----+----+----+----+----+----+----+----+----|
           ,    ,    ,    ,    ,    ,ENT ,    ,    ,    ,    ,UP
 //  .-----+----+----+----+----+----+----+----+----+----+----+----.
