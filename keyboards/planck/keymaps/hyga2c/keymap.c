@@ -89,9 +89,9 @@ uint16_t get_tapping_term(uint16_t keycode,keyrecord_t *record) {
     case KC_A_L:
       return TAPPING_LAYER_TERM;
     case KC_S_A:
-      return TAPPING_LAYER_TERM - 50;
+      return TAPPING_LAYER_TERM - 30;
     case KC_S_SC:
-      return TAPPING_LAYER_TERM - 50;
+      return TAPPING_LAYER_TERM - 30;
     default:
       return TAPPING_TERM;
   }
@@ -108,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //-----+----+----+----+----+----+----+----+----+----+----+----
      LSFT, Z  , X  , C  , V  , B  , N  , M  ,COMM,DOT ,SLSH,ENT ,
   //-----+----+----+----+----+----+----+----+----+----+----+----
-     DOWN,LEFT,LCTL,LGUI,L_EN,SPC ,SPC ,R_JA ,RGUI,RALT,RGHT,AD_UP
+     DOWN,LEFT,LALT,LGUI,L_EN,SPC ,SPC ,R_JA ,RGUI,RCTL,RGHT,AD_UP
   ),
 
 
