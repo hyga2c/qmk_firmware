@@ -46,52 +46,40 @@ enum planck_keycodes {
 #define KC_L_EN LT(_LOWER,KC_MHEN)
 
 // cmd_t
-#define KC_G_D LGUI_T(KC_D)
-#define KC_G_K RGUI_T(KC_K)
+//#define KC_G_D LGUI_T(KC_D)
+//#define KC_G_K RGUI_T(KC_K)
 
 // ctl_t
-#define KC_C_F LCTL_T(KC_F)
-#define KC_C_J RCTL_T(KC_J)
+//#define KC_C_F LCTL_T(KC_F)
+//#define KC_C_J RCTL_T(KC_J)
 
 // alt_t
-#define KC_A_S ALT_T(KC_S)
-#define KC_A_L ALT_T(KC_L)
+//#define KC_A_S ALT_T(KC_S)
+//#define KC_A_L ALT_T(KC_L)
 
 // shift_t
 #define KC_S_A LSFT_T(KC_A)    //shift down key
 #define KC_S_SC RSFT_T(KC_SCLN)   //shift up key
 
-#define KC_C_BS LCTL_T(KC_BSPC)      // backspace ctrl
-#define KC_A_BS ALT_T(KC_BSPC)      // backspace alt
-#define KC_A_DEL ALT_T(KC_DEL)       // alt
 #define KC_C_TAB LCTL_T(KC_TAB)     //tab and ctrl
-#define KC_S_LFT LSFT_T(KC_LEFT)    //shift left key
-#define KC_M_RGT LT(_ADJUST,KC_RGHT)    //mod3 right key
-#define KC_S_DWN LSFT_T(KC_DOWN)    //shift down key
+//#define KC_C_BS LCTL_T(KC_BSPC)      // backspace ctrl
+//#define KC_A_BS ALT_T(KC_BSPC)      // backspace alt
+//#define KC_A_DEL ALT_T(KC_DEL)       // alt
+//#define KC_S_LFT LSFT_T(KC_LEFT)    //shift left key
+//#define KC_M_RGT LT(_ADJUST,KC_RGHT)    //mod3 right key
+//#define KC_S_DWN LSFT_T(KC_DOWN)    //shift down key
 
 #define KC_AD_UP LT(_ADJUST, KC_UP)   //shift up key
 
 
-// S,L,D,K,F,Jはチョット余裕を持たせる：全体が170に対して、文字キーのみ240に設定。シフトは短めで-40にする
-#define TAPPING_LAYER_TERM 240
+// Shiftはチョット余裕を持たせる：全体が170に対して、文字キーのみ200に設定。
+#define TAPPING_LAYER_TERM 200
 uint16_t get_tapping_term(uint16_t keycode,keyrecord_t *record) {
   switch (keycode) {
-    case KC_G_D:
-      return TAPPING_LAYER_TERM;
-    case KC_G_K:
-      return TAPPING_LAYER_TERM;
-    case KC_C_F:
-      return TAPPING_LAYER_TERM;
-    case KC_C_J:
-      return TAPPING_LAYER_TERM;
-    case KC_A_S:
-      return TAPPING_LAYER_TERM;
-    case KC_A_L:
-      return TAPPING_LAYER_TERM;
     case KC_S_A:
-      return TAPPING_LAYER_TERM - 30;
+      return TAPPING_LAYER_TERM;
     case KC_S_SC:
-      return TAPPING_LAYER_TERM - 30;
+      return TAPPING_LAYER_TERM;
     default:
       return TAPPING_TERM;
   }
@@ -104,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //-----+----+----+----+----+----+----+----+----+----+----+----
      ESC ,Q   , W  , E  ,R   , T  , Y  , U  , I  , O  , P  ,MINS,
   //-----+----+----+----+----+----+----+----+----+----+----+----
-     C_TAB, S_A, A_S, G_D, C_F, G  , H  , C_J, G_K, A_L,S_SC,QUOT,
+    C_TAB,S_A , S  , D  , F  , G  , H  , J  , K  , L  ,S_SC,QUOT,
   //-----+----+----+----+----+----+----+----+----+----+----+----
      LSFT, Z  , X  , C  , V  , B  , N  , M  ,COMM,DOT ,SLSH,ENT ,
   //-----+----+----+----+----+----+----+----+----+----+----+----
