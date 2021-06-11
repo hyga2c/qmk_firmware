@@ -57,30 +57,14 @@ enum layer_number {
 #define KC_S_SC RSFT_T(KC_SCLN)   //shift up key
 
 
-
-
-
-
-// S,L,D,K, F, Jはチョット余裕を持たせる：全体が170に対して、文字キーのみ240に設定。
-#define TAPPING_LAYER_TERM 240
+// Shift holdは余裕を持たせる：全体が170に対して、文字キーのみ190に設定。
+#define TAPPING_LAYER_TERM 190
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case KC_G_D:
-      return TAPPING_LAYER_TERM;
-    case KC_G_K:
-      return TAPPING_LAYER_TERM;
-    case KC_C_F:
-      return TAPPING_LAYER_TERM;
-    case KC_C_J:
-      return TAPPING_LAYER_TERM;
-    case KC_A_S:
-      return TAPPING_LAYER_TERM;
-    case KC_A_L:
-      return TAPPING_LAYER_TERM;
     case KC_S_A:
-      return TAPPING_LAYER_TERM - 50;
+      return TAPPING_LAYER_TERM
     case KC_S_SC:
-      return TAPPING_LAYER_TERM - 50;
+      return TAPPING_LAYER_TERM;
     default:
       return TAPPING_TERM;
   }
@@ -92,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //,----+----+----+----+----+----.     ,----+----+----+----+----+----.
       ESC, Q  , W  , E  , R  , T  ,       Y  , U  , I  , O  , P  ,MINS,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
-     C_TAB,S_A ,A_S, G_D ,C_F , G ,        H , C_J ,G_K ,A_L,S_SC,QUOT,
+     C_TAB,S_A, S  , D  , F  , G  ,       H  , J  , K  , L  ,S_SC,QUOT,
   //|----+----+----+----+----+----+     |----+----+----+----+----+----|
      LSFT, Z  , X  , C  , V  , B ,       N  , M  ,COMM,DOT ,SLSH,AD_ENT,
   //`----+----+----+----+----+----/     \----+----+----+----+----+----'
