@@ -62,7 +62,7 @@ enum layer_number {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case KC_S_A:
-      return TAPPING_LAYER_TERM
+      return TAPPING_LAYER_TERM;
     case KC_S_SC:
       return TAPPING_LAYER_TERM;
     default:
