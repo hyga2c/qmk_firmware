@@ -41,9 +41,11 @@ enum planck_keycodes {
 //#define KC_L_SPC LT(_LOWER,KC_SPC)
 //#define KC_R_SPC LT(_RAISE,KC_SPC)
 
+#define KC_LOWER MO(_LOWER)
+#define KC_RAISE MO(_RAISE)
 // JE_t + Layer hold: 変換無変換キータップとWin/Cmd
-#define KC_R_JA LT(_RAISE,KC_HENK)
-#define KC_L_EN LT(_LOWER,KC_MHEN)
+#define KC_G_JA RGUI_T(KC_HENK)
+#define KC_G_EN LGUI_T(KC_MHEN)
 
 // cmd_t
 //#define KC_G_D LGUI_T(KC_D)
@@ -96,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //-----+----+----+----+----+----+----+----+----+----+----+----
      LSFT, Z  , X  , C  , V  , B  , N  , M  ,COMM,DOT ,SLSH,ENT ,
   //-----+----+----+----+----+----+----+----+----+----+----+----
-     DOWN,LEFT,LALT,LGUI,L_EN,SPC ,SPC ,R_JA ,RGUI,RCTL,RGHT,AD_UP
+     DOWN,LEFT,LALT,G_EN,LOWER,SPC,SPC,RAISE,G_JA,RCTL,RGHT,AD_UP
   ),
 
 
