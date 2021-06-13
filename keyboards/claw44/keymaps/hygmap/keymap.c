@@ -31,26 +31,28 @@ enum layer_number {
 
 
 // layer: レイヤー変更 変換＋RAISEと無変換+LOWER、Enterと＿ADJUST
-#define KC_R_JA LT(_RAISE, KC_HENK)
-#define KC_L_EN LT(_LOWER, KC_MHEN)
+#define KC_LOWER MO(_LOWER)
+#define KC_RAISE MO(_RAISE)
+#define KC_G_JA RGUI_T(KC_HENK)
+#define KC_G_EN LGUI_T(KC_MHEN)
 #define KC_AD_ENT LT(_ADJUST, KC_ENT)
 
 #define KC_C_BS LCTL_T(KC_BSPC)      // backspace ctrl
 #define KC_A_BS ALT_T(KC_BSPC)      // backspace alt
-#define KC_A_DEL ALT_T(KC_DEL)       // alt
+//#define KC_A_DEL ALT_T(KC_DEL)       // alt
 #define KC_C_TAB LCTL_T(KC_TAB)     //tab and ctrl
 
 // cmd_tap alpha
-#define KC_G_D LGUI_T(KC_D)
-#define KC_G_K RGUI_T(KC_K)
+//#define KC_G_D LGUI_T(KC_D)
+//#define KC_G_K RGUI_T(KC_K)
 
 // ctl_tap alpha
-#define KC_C_F LCTL_T(KC_F)
-#define KC_C_J RCTL_T(KC_J)
+//#define KC_C_F LCTL_T(KC_F)
+//#define KC_C_J RCTL_T(KC_J)
 
 // alt_tap alpha
-#define KC_A_S ALT_T(KC_S)
-#define KC_A_L ALT_T(KC_L)
+//#define KC_A_S ALT_T(KC_S)
+//#define KC_A_L ALT_T(KC_L)
 
 // shift_tap alfa
 #define KC_S_A LSFT_T(KC_A)    //shift down key
@@ -78,9 +80,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
      C_TAB,S_A, S  , D  , F  , G  ,       H  , J  , K  , L  ,S_SC,QUOT,
   //|----+----+----+----+----+----+     |----+----+----+----+----+----|
-     LSFT, Z  , X  , C  , V  , B ,       N  , M  ,COMM,DOT ,SLSH,AD_ENT,
+     LSFT, Z  , X  , C  , V  , B ,        N  , M  ,COMM,DOT,SLSH,AD_ENT,
   //`----+----+----+----+----+----/     \----+----+----+----+----+----'
-               LGUI,L_EN,SPC ,A_BS,      C_BS,SPC ,R_JA,RGUI
+               G_EN,LOWER,SPC,A_BS,      C_BS,SPC,RAISE,G_JA
   //          `----+----+----+----'     `----+----+----+----'
   ),
 
