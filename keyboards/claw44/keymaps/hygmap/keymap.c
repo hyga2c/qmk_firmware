@@ -64,8 +64,8 @@ enum layer_number {
 #define KC_S_UP RSFT_T(KC_UP)   //shift up key
 
 
-// S,L,D,K, F, Jはかなり余裕を持たせる
-#define TAPPING_LAYER_TERM 300
+// S,L,D,K, F, Jはチョット余裕を持たせる：全体が170に対して、文字キーのみ240に設定。
+#define TAPPING_LAYER_TERM 240
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case KC_G_D:
