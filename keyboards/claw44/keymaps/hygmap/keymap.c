@@ -30,56 +30,37 @@ enum layer_number {
 #define KC_XXXX KC_NO //定義無し
 
 
-// layer: レイヤー変更 スペースを左に配置してレイヤー2(Lower)に、エンターを右に配置してレイヤー1（Raise)に
-#define KC_L_SPC LT(_LOWER, KC_SPC)
-#define KC_R_SPC LT(_RAISE, KC_SPC)
-
-// JE_t + cmd hold: 変換無変換キータップとWin/Cmd
-#define KC_G_JA MT(MOD_RGUI, KC_HENK)
-#define KC_G_EN MT(MOD_LGUI, KC_MHEN)
-
-// cmd_t
-#define KC_G_D LGUI_T(KC_D)
-#define KC_G_K RGUI_T(KC_K)
-
-// ctl_t
-#define KC_C_F LCTL_T(KC_F)
-#define KC_C_J RCTL_T(KC_J)
-
-// alt_t
-#define KC_A_S ALT_T(KC_S)
-#define KC_A_L ALT_T(KC_L)
-
-// shift_t
-#define KC_S_A LSFT_T(KC_A)    //shift down key
-#define KC_S_SC RSFT_T(KC_SCLN)   //shift up key
+// layer: レイヤー変更 変換＋RAISEと無変換+LOWER、Enterと＿ADJUST
+#define KC_R_JA LT(_RAISE, KC_HENK)
+#define KC_L_EN LT(_LOWER, KC_MHEN)
+#define KC_AD_ENT LT(_ADJUST, KC_ENT)
 
 #define KC_C_BS LCTL_T(KC_BSPC)      // backspace ctrl
 #define KC_A_BS ALT_T(KC_BSPC)      // backspace alt
 #define KC_A_DEL ALT_T(KC_DEL)       // alt
 #define KC_C_TAB LCTL_T(KC_TAB)     //tab and ctrl
-#define KC_S_LFT LSFT_T(KC_LEFT)    //shift left key
-#define KC_M_RGT LT(_ADJUST,KC_RGHT)    //mod3 right key
-#define KC_S_DWN LSFT_T(KC_DOWN)    //shift down key
-#define KC_S_UP RSFT_T(KC_UP)   //shift up key
+
+// cmd_tap alpha
+#define KC_G_D LGUI_T(KC_D)
+#define KC_G_K RGUI_T(KC_K)
+
+// ctl_tap alpha
+#define KC_C_F LCTL_T(KC_F)
+#define KC_C_J RCTL_T(KC_J)
+
+// alt_tap alpha
+#define KC_A_S ALT_T(KC_S)
+#define KC_A_L ALT_T(KC_L)
+
+// shift_tap alfa
+#define KC_S_A LSFT_T(KC_A)    //shift down key
+#define KC_S_SC RSFT_T(KC_SCLN)   //shift up key
 
 
-// S,L,D,K, F, Jはチョット余裕を持たせる：全体が170に対して、文字キーのみ240に設定。
-#define TAPPING_LAYER_TERM 240
+// Shift holdは余裕を持たせる：全体が170に対して、文字キーのみ190に設定。
+#define TAPPING_LAYER_TERM 190
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case KC_G_D:
-      return TAPPING_LAYER_TERM;
-    case KC_G_K:
-      return TAPPING_LAYER_TERM;
-    case KC_C_F:
-      return TAPPING_LAYER_TERM;
-    case KC_C_J:
-      return TAPPING_LAYER_TERM;
-    case KC_A_S:
-      return TAPPING_LAYER_TERM;
-    case KC_A_L:
-      return TAPPING_LAYER_TERM;
     case KC_S_A:
       return TAPPING_LAYER_TERM;
     case KC_S_SC:
@@ -95,35 +76,35 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //,----+----+----+----+----+----.     ,----+----+----+----+----+----.
       ESC, Q  , W  , E  , R  , T  ,       Y  , U  , I  , O  , P  ,MINS,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
-     C_TAB,S_A ,A_S, G_D ,C_F , G ,        H , C_J ,G_K ,A_L,S_SC,QUOT,
+     C_TAB,S_A, S  , D  , F  , G  ,       H  , J  , K  , L  ,S_SC,QUOT,
   //|----+----+----+----+----+----+     |----+----+----+----+----+----|
-     S_LFT, Z  , X  , C  , V  , B ,       N  , M  ,COMM,DOT ,SLSH,M_RGT,
+     LSFT, Z  , X  , C  , V  , B ,       N  , M  ,COMM,DOT ,SLSH,AD_ENT,
   //`----+----+----+----+----+----/     \----+----+----+----+----+----'
-              S_DWN,G_EN,L_SPC,A_BS,      C_BS,R_SPC,G_JA,S_UP
+               LGUI,L_EN,SPC ,A_BS,      C_BS,SPC ,R_JA,RGUI
   //          `----+----+----+----'     `----+----+----+----'
   ),
 
     [_RAISE] = LAYOUT_kc( \
   //,----+----+----+----+----+----.     ,----+----+----+----+----+----.
-         ,EXLM,AT  ,HASH,DLR ,XXXX,      CIRC,AMPR ,ASTR,EQL,BSLS,    ,
+         ,EXLM,AT  ,HASH,DLR ,PERC,      CIRC,AMPR,ASTR,EQL ,BSLS,BSPC,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
-     LCTL,    ,GRV ,DQUO,QUOT,TILD,      LEFT,DOWN, UP ,RGHT,PLUS ,PIPE,
+     LCTL,    ,GRV ,DQUO,QUOT,TILD,      LEFT,DOWN, UP ,RGHT,PLUS,PIPE,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
-     LSFT,    ,    ,LCBR,LBRC,LPRN,      RPRN,RBRC,RCBR,    ,    ,RSFT,
+     LSFT,    ,    ,LCBR,LBRC,LPRN,      RPRN,RBRC,RCBR,    ,    ,ENT ,
   //`----+----+----+----+----+----/     \----+----+----+----+----+----'
-                   ,    ,ENT ,DEL ,          ,    ,    ,    
+                   ,    ,ENT ,DEL ,          ,    ,    ,
   //          `----+----+----+----'     `----+----+----+----'
   ),
 
     [_LOWER] = LAYOUT_kc( \
   //,----+----+----+----+----+----.     ,----+----+----+----+----+----.
-         ,    ,    ,    ,    ,    ,          ,EQL ,PLUS,ASTR,PERC,MINS,
+         ,EXLM,AT  ,HASH,DLR ,PERC,      CIRC,AMPR,ASTR,EQL ,BSLS,BSPC,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
-    LCTL, 1  , 2  , 3  , 4  , 5  ,       6  , 7  , 8  , 9  , 0  ,    ,
+    LCTL, 1   , 2  , 3  , 4  , 5  ,       6  , 7  , 8  , 9  , 0  ,    ,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
-    LSFT,    ,    ,    ,    ,    ,          ,    ,LT  ,GT  ,SLSH,    ,
+    LSFT,    ,     ,LCBR,LBRC,LPRN,      RPRN,RBRC,COMM,DOT ,SLSH,ENT ,
   //`----+----+----+--+-+----+----/     \----+----+----+----+----+----'
-                   ,    ,    ,    ,      DEL  ,ENT ,    ,
+                   ,    ,    ,    ,      DEL ,ENT ,    ,
   //          `----+----+----+----'     `----+----+----+----'
   ),
 
